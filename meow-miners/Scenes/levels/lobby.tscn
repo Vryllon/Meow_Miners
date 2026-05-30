@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://7r0yk2din8ta"]
 
+[ext_resource type="PackedScene" uid="uid://gtsqfgxfi0sy" path="res://Scenes/Characters/player.tscn" id="1_b7rcr"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ggjv"]
 size = Vector2(64, 64)
 
@@ -20,3 +22,6 @@ shape = SubResource("RectangleShape2D_3ggjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=1214904128]
 texture = SubResource("GradientTexture2D_lhwll")
+
+[node name="Player" parent="." unique_id=840833898 instance=ExtResource("1_b7rcr")]
+position = Vector2(0, -60)
