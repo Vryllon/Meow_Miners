@@ -1,23 +1,63 @@
 extends Node2D
 
+# NOTE : X AND Y ARE INVERTED BECAUSE OF THE 90 DEGREE ROTATION
+
+var WIDTH = 0
+var HEIGHT = 0
+
 var mining_pixel_load : PackedScene = load("res://Scenes/Areas/Mining/mining_pixel.tscn")
+var mining_map: Array = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	generate_pixels()
+	call_deferred("initialize_mining_map")
 
+func initialize_mining_map() -> void:
+	WIDTH = $Background.scale.y
+	HEIGHT = $Background.scale.x
+	print_debug(HEIGHT)
+	mining_map = generate_mining_map(1,20)
+	generate_pixels(1, 20)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+# Generates the data array containing the various materials in the mining area
+func generate_mining_map(start : int, end : int) -> Array:
+	var map: Array = []
+	
+	for i in (end - start + 1):
+		var level: Array = []
+		
+		# add level data
+		level.append(start + i - 1)
+		
+		# add the data for each mining pixel at this level
+		for j in $Background.scale.y:
+			level.append(rand_mineral(start + i - 1))
+		
+		# add this level to the map
+		map.append(level)
+	
+	return map
+
+# generates a random mineral based on the level and returns the int equivalent
+func rand_mineral(level: int) -> int:
+	var r: float = randf()
+	if r <= 0.05:
+		return 1
+	
+	return 0
 
 # Generates the mining pixels in the mining area
-func generate_pixels() -> void:
+func generate_pixels(start: int, end: int) -> void:
 	#print_debug(str($Background.scale.x) + " " + str($Background.scale.y))
-	for i in $Background.scale.x:
-		for j in $Background.scale.y:
+	for i in end - start + 1:
+		for j in WIDTH:
 			var mining_pixel = mining_pixel_load.instantiate()
 			add_child(mining_pixel)
 			mining_pixel.name = "mining_pixel_" + str(i) + "_" + str(j)
-			mining_pixel.position = Vector2((i - $Background.scale.x/2) * 64 + 32, (j - $Background.scale.y/2) * 64 + 32)
+			mining_pixel.position = Vector2((i - HEIGHT/2) * 64 + 32, (j - WIDTH/2) * 64 + 32)
+			mining_pixel.set_mineral(mining_map[start+i-1][j+1])

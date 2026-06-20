@@ -1,16 +1,21 @@
 [gd_scene format=3 uid="uid://d2rwre2bqheax"]
 
+[ext_resource type="Script" uid="uid://n80lnsasbd8r" path="res://Scripts/Areas/Mining/mining_pixel.gd" id="1_egmom"]
+
 [sub_resource type="Gradient" id="Gradient_axhim"]
+resource_local_to_scene = true
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.6235961, 0.07602627, 0.5800882, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_egmom"]
+resource_local_to_scene = true
 gradient = SubResource("Gradient_axhim")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tcj5t"]
 size = Vector2(64, 64)
 
 [node name="Mining_Pixel" type="StaticBody2D" unique_id=1363201829]
+script = ExtResource("1_egmom")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1383861515]
 texture = SubResource("GradientTexture2D_egmom")
