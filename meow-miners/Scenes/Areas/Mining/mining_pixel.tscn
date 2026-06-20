@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d2rwre2bqheax"]
+
+[sub_resource type="Gradient" id="Gradient_axhim"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.6235961, 0.07602627, 0.5800882, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_egmom"]
+gradient = SubResource("Gradient_axhim")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcj5t"]
+size = Vector2(64, 64)
+
+[node name="Mining_Pixel" type="StaticBody2D" unique_id=1363201829]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1383861515]
+texture = SubResource("GradientTexture2D_egmom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1528230324]
+shape = SubResource("RectangleShape2D_tcj5t")

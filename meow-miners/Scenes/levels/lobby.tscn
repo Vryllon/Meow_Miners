@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7r0yk2din8ta"]
 
 [ext_resource type="PackedScene" uid="uid://gtsqfgxfi0sy" path="res://Scenes/Characters/player.tscn" id="1_b7rcr"]
+[ext_resource type="PackedScene" uid="uid://cvhe3r4kwk3ky" path="res://Scenes/Areas/Mining/mining_area.tscn" id="1_fmxxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ggjv"]
 size = Vector2(64, 64)
@@ -14,7 +15,11 @@ gradient = SubResource("Gradient_k2gmi")
 
 [node name="Lobby" type="Node2D" unique_id=703698166]
 
+[node name="Mining_Area" parent="." unique_id=605624765 instance=ExtResource("1_fmxxw")]
+position = Vector2(1442, 8000)
+
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1873557120]
+position = Vector2(2, 32)
 scale = Vector2(20, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1084857225]

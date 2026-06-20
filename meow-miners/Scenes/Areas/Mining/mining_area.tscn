@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cvhe3r4kwk3ky"]
+
+[ext_resource type="Script" uid="uid://b3qori12yrbks" path="res://Scripts/Areas/Mining/mining_area.gd" id="1_3h3yr"]
+
+[sub_resource type="Gradient" id="Gradient_kkje2"]
+colors = PackedColorArray(0.16666663, 0.5, 0, 1, 0.5, 0, 0.008333206, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3h3yr"]
+gradient = SubResource("Gradient_kkje2")
+
+[node name="Mining_Area" type="Node2D" unique_id=605624765]
+rotation = 1.5707964
+script = ExtResource("1_3h3yr")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2011243076]
+scale = Vector2(250, 25)
+texture = SubResource("GradientTexture2D_3h3yr")
