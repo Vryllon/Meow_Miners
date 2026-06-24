@@ -17,8 +17,8 @@ func initialize_mining_map() -> void:
 	WIDTH = $Background.scale.y
 	HEIGHT = $Background.scale.x
 	print_debug(HEIGHT)
-	mining_map = generate_mining_map(1,20)
-	generate_pixels(1, 20)
+	mining_map = generate_mining_map(1,HEIGHT)
+	generate_pixels(1, HEIGHT)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

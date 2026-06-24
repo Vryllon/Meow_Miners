@@ -30,3 +30,4 @@ texture = SubResource("GradientTexture2D_lhwll")
 
 [node name="Player" parent="." unique_id=840833898 instance=ExtResource("1_b7rcr")]
 position = Vector2(0, -60)
+scale = Vector2(0.75, 0.75)
