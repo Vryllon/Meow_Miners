@@ -22,3 +22,8 @@ shape = SubResource("CapsuleShape2D_2m74s")
 zoom = Vector2(1.5, 1.5)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=823903933]
+
+[node name="Mine_Line" type="Line2D" parent="RayCast2D" unique_id=832668108]
+points = PackedVector2Array(0, 0, 0, 48)
+width = 4.0
+default_color = Color(1, 0, 0, 0.22352941)

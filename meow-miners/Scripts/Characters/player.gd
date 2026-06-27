@@ -9,6 +9,7 @@ var mining_obj: Object = null
 var mining_prev: Object = null
 var mining_time: float = 0
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action("mine"):
 		if event.is_action_pressed("mine"):
@@ -45,16 +46,17 @@ func handle_move(delta: float) -> void:
 
 # Function that handles player to mouse ray during physics_process
 func handle_ray() -> void:
-	$RayCast2D.target_position = get_global_mouse_position() - global_position
+	$RayCast2D.target_position = (get_global_mouse_position() - global_position).normalized() * 128
+	$RayCast2D/Mine_Line.set_point_position(1, $RayCast2D.target_position)
 
 # Function that handles mining
 func handle_mining(delta: float) -> void:
+	set_mine_target()
 	# Check if the same pixel is being mine as the previous check
-	if mining_obj and (mining_prev == null or mining_obj== mining_prev):
+	if mining_obj and (mining_prev == null or mining_obj == mining_prev):
 		mining_time += delta
 	else:
 		mining_time = 0
-		set_mine_target()
 		return
 	
 	print_debug(mining_time)
@@ -62,11 +64,12 @@ func handle_mining(delta: float) -> void:
 	# If mining_objtime has exceeded pixels mine time then mine the pixel
 	if mining_time >= mining_obj.mine_time:
 		mining_obj.mine()
-	
-	# Update previous mined pixel
-	mining_prev = mining_obj
 
 func set_mine_target() -> void:
+	# Update previous mined pixel
+	mining_prev = mining_obj
+	
+	# Set current mine target
 	var collision: Object = $RayCast2D.get_collider()
 	if mining and collision and collision.get_name().contains("mining_pixel"):
 		mining_obj= collision
