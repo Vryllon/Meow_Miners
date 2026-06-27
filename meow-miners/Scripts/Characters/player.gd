@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var inv = []
+
 var mining: bool = false
 var mining_obj: Object = null
 var mining_prev: Object = null
@@ -59,11 +61,21 @@ func handle_mining(delta: float) -> void:
 		mining_time = 0
 		return
 	
-	print_debug(mining_time)
+	#print_debug(mining_time)
 	
 	# If mining_objtime has exceeded pixels mine time then mine the pixel
 	if mining_time >= mining_obj.mine_time:
-		mining_obj.mine()
+		add_to_inv(mining_obj.mine())
+
+func add_to_inv(mineral: String) -> void:
+	# Add to existing slot if mineral has already been gathered
+	for slot in inv:
+		if slot[0] == mineral:
+			slot[1] += 1
+			return
+	
+	# Add new slot if new item
+	inv.append([mineral, 1])
 
 func set_mine_target() -> void:
 	# Update previous mined pixel
