@@ -14,6 +14,9 @@ colors = PackedColorArray(0.3862508, 0.38625085, 0.38625085, 1, 0.11415807, 0.11
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nfokm"]
 gradient = SubResource("Gradient_3h3yr")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h3yr"]
+size = Vector2(64, 1)
+
 [node name="Mining_Area" type="Node2D" unique_id=605624765]
 rotation = 1.5707964
 script = ExtResource("1_3h3yr")
@@ -26,3 +29,15 @@ texture = SubResource("GradientTexture2D_3h3yr")
 show_behind_parent = true
 scale = Vector2(250, 250)
 texture = SubResource("GradientTexture2D_nfokm")
+
+[node name="Left_Wall" type="StaticBody2D" parent="Walls" unique_id=563748987]
+position = Vector2(0, 3.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Left_Wall" unique_id=1403696837]
+shape = SubResource("RectangleShape2D_3h3yr")
+
+[node name="Right_Wall" type="StaticBody2D" parent="Walls" unique_id=178693677]
+position = Vector2(0, -3.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Right_Wall" unique_id=1206025715]
+shape = SubResource("RectangleShape2D_3h3yr")
