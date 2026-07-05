@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://4lcolas6fsjn"]
+
+[ext_resource type="Script" uid="uid://ujkgta1u5un3" path="res://Scripts/Areas/Shop/shop.gd" id="1_dbqsf"]
+
+[sub_resource type="Gradient" id="Gradient_b2hni"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.21384564, 0.13295785, 0.024395829, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dbqsf"]
+gradient = SubResource("Gradient_b2hni")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2hni"]
+size = Vector2(64, 64)
+
+[node name="Shop" type="Node2D" unique_id=2014613424]
+top_level = true
+script = ExtResource("1_dbqsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2121930330]
+texture = SubResource("GradientTexture2D_dbqsf")
+
+[node name="Interaction_Area" type="Area2D" parent="." unique_id=315752087]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Area" unique_id=476042216]
+show_behind_parent = true
+shape = SubResource("RectangleShape2D_b2hni")
+
+[node name="Interaction_Instruction" type="Label" parent="." unique_id=1135128471]
+visible = false
+offset_left = -62.0
+offset_top = 8.0
+offset_right = 63.0
+offset_bottom = 32.0
+text = "Press 'E' to shop"
+
+[connection signal="body_entered" from="Interaction_Area" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="Interaction_Area" to="." method="_on_interaction_area_body_exited"]
