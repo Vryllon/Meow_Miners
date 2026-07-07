@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var inv = []
+var currency = 0
 
 var mining: bool = false
 var mining_obj: Object = null
@@ -20,6 +21,12 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_released("mine"):
 			mining = false
 			mining_obj= null
+	
+	if event.is_action_pressed("interact"):
+		for area in $Area2D.get_overlapping_areas():
+			if area.name.contains("Interaction"):
+				area.get_parent().interact(self)
+		
 
 func _physics_process(delta: float) -> void:
 	handle_move(delta)
