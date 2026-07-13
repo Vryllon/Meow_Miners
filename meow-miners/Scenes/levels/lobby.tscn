@@ -19,7 +19,6 @@ gradient = SubResource("Gradient_k2gmi")
 [node name="Player" parent="." unique_id=840833898 instance=ExtResource("1_b7rcr")]
 position = Vector2(0, -60)
 scale = Vector2(0.75, 0.75)
-slide_on_ceiling = false
 
 [node name="Mining_Area" parent="." unique_id=605624765 instance=ExtResource("1_fmxxw")]
 show_behind_parent = true
