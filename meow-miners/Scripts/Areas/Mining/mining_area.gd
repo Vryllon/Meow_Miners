@@ -14,8 +14,8 @@ func _ready() -> void:
 	call_deferred("initialize_mining_map")
 
 func initialize_mining_map() -> void:
-	WIDTH = $Background.scale.y
-	HEIGHT = $Background.scale.x
+	WIDTH = $Map.scale.y
+	HEIGHT = $Map.scale.x
 	print_debug(HEIGHT)
 	mining_map = generate_mining_map(1,HEIGHT)
 	generate_pixels(1, HEIGHT)
@@ -35,7 +35,7 @@ func generate_mining_map(start : int, end : int) -> Array:
 		level.append(start + i - 1)
 		
 		# add the data for each mining pixel at this level
-		for j in $Background.scale.y:
+		for j in $Map.scale.y:
 			level.append(rand_mineral(start + i - 1))
 		
 		# add this level to the map

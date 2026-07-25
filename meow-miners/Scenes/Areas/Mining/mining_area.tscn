@@ -2,42 +2,26 @@
 
 [ext_resource type="Script" uid="uid://b3qori12yrbks" path="res://Scripts/Areas/Mining/mining_area.gd" id="1_3h3yr"]
 
-[sub_resource type="Gradient" id="Gradient_kkje2"]
-colors = PackedColorArray(0.16666663, 0.5, 0, 1, 0.5, 0, 0.008333206, 1)
+[sub_resource type="Gradient" id="Gradient_nfokm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.2991906, 0.23420873, 0.15614676, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3h3yr"]
-gradient = SubResource("Gradient_kkje2")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0lmff"]
+gradient = SubResource("Gradient_nfokm")
 
-[sub_resource type="Gradient" id="Gradient_3h3yr"]
-colors = PackedColorArray(0.3862508, 0.38625085, 0.38625085, 1, 0.11415807, 0.11415809, 0.11415807, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nfokm"]
-gradient = SubResource("Gradient_3h3yr")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h3yr"]
-size = Vector2(64, 1)
+[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_3h3yr"]
+segments = PackedVector2Array(32, 32, 32, -32, -32, 32, 32, 32, -32, -32, 32, -32, -32, -32, -32, 32)
 
 [node name="Mining_Area" type="Node2D" unique_id=605624765]
 rotation = 1.5707964
 script = ExtResource("1_3h3yr")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=2011243076]
-scale = Vector2(250, 25)
-texture = SubResource("GradientTexture2D_3h3yr")
+[node name="Map" type="StaticBody2D" parent="." unique_id=1738739877]
+scale = Vector2(100, 100)
 
-[node name="Walls" type="Sprite2D" parent="." unique_id=1805839777]
-show_behind_parent = true
-scale = Vector2(250, 250)
-texture = SubResource("GradientTexture2D_nfokm")
+[node name="Background" type="Sprite2D" parent="Map" unique_id=2011243076]
+texture = SubResource("GradientTexture2D_0lmff")
 
-[node name="Left_Wall" type="StaticBody2D" parent="Walls" unique_id=563748987]
-position = Vector2(0, 3.7)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Left_Wall" unique_id=1403696837]
-shape = SubResource("RectangleShape2D_3h3yr")
-
-[node name="Right_Wall" type="StaticBody2D" parent="Walls" unique_id=178693677]
-position = Vector2(0, -3.7)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Right_Wall" unique_id=1206025715]
-shape = SubResource("RectangleShape2D_3h3yr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map" unique_id=1744980971]
+shape = SubResource("ConcavePolygonShape2D_3h3yr")
+one_way_collision_margin = 0.0
