@@ -2,19 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c03vauxck6i8v" path="res://Scripts/Levels/lobby.gd" id="1_1dxtr"]
 [ext_resource type="PackedScene" uid="uid://cvhe3r4kwk3ky" path="res://Scenes/Areas/Mining/mining_area.tscn" id="1_fmxxw"]
-[ext_resource type="PackedScene" uid="uid://4lcolas6fsjn" path="res://Scenes/Areas/Shop/shop.tscn" id="3_1dxtr"]
 
 [node name="Lobby" type="Node2D" unique_id=703698166]
 script = ExtResource("1_1dxtr")
 
 [node name="Mining_Area" parent="." unique_id=605624765 instance=ExtResource("1_fmxxw")]
 show_behind_parent = true
-
-[node name="Shop" parent="." unique_id=2014613424 instance=ExtResource("3_1dxtr")]
-visible = false
-show_behind_parent = true
-top_level = false
-position = Vector2(512, -96)
-scale = Vector2(3, 3)
 
 [connection signal="map_generated" from="Mining_Area" to="." method="_on_mining_area_map_generated"]

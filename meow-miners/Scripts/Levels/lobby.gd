@@ -14,8 +14,12 @@ func _process(delta: float) -> void:
 
 
 func _on_mining_area_map_generated() -> void:
-	var rspawn = Vector2i(randi_range(0,$Mining_Area.WIDTH), randi_range(0,$Mining_Area.HEIGHT))
-	player.position = Vector2(rspawn.x - $Mining_Area.WIDTH/2 + 0.5, rspawn.y - $Mining_Area.HEIGHT/2 + 0.5) * 64
+	var min = Vector2($Mining_Area.WIDTH, $Mining_Area.HEIGHT) * .25
+	var mid = Vector2($Mining_Area.WIDTH, $Mining_Area.HEIGHT)/2
+	var max = Vector2($Mining_Area.WIDTH, $Mining_Area.HEIGHT) * .75
+	
+	var rspawn = Vector2i(randi_range(min.x, max.x), randi_range(min.y, max.y))
+	player.position = Vector2(rspawn.x - mid.x + 0.5, rspawn.y - mid.y + 0.5) * 64
 	
 	var spawn_tile = $Mining_Area.get_node("mining_pixel_" + str(rspawn.x) + "_" + str(rspawn.y))
 	if spawn_tile: spawn_tile.mine()
