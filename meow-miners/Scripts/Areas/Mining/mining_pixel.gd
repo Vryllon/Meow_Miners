@@ -16,3 +16,6 @@ func init_mineral(m: String = "stone", c: Color = Color("Dark_Gray"), mt: float 
 func mine() -> String:
 	queue_free()
 	return mineral
+
+func discover() -> void:
+	$Fog.hide()

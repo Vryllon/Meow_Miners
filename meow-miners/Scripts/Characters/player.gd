@@ -50,6 +50,8 @@ func handle_move(delta: float) -> void:
 func handle_ray() -> void:
 	$RayCast2D.target_position = (get_global_mouse_position() - global_position).normalized() * 128
 	$RayCast2D/Mine_Line.set_point_position(1, $RayCast2D.target_position)
+	var focus = $RayCast2D.get_collider()
+	if focus and focus.get_name().contains("mining_pixel"): focus.discover()
 
 # Function that handles mining
 func handle_mining(delta: float) -> void:

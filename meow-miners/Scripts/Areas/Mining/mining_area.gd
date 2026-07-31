@@ -2,8 +2,8 @@ extends Node2D
 
 signal map_generated
 
-var WIDTH: int = 10
-var HEIGHT: int = 10
+var WIDTH: int = 100
+var HEIGHT: int = 100
 
 var mining_pixel_load : PackedScene = load("res://Scenes/Areas/Mining/mining_pixel.tscn")
 var mining_map: Array = []
