@@ -1,9 +1,9 @@
 extends Node2D
 
-# NOTE : X AND Y ARE INVERTED BECAUSE OF THE 90 DEGREE ROTATION
+signal map_generated
 
-var WIDTH = 0
-var HEIGHT = 0
+var WIDTH: int = 0
+var HEIGHT: int = 0
 
 var mining_pixel_load : PackedScene = load("res://Scenes/Areas/Mining/mining_pixel.tscn")
 var mining_map: Array = []
@@ -19,6 +19,7 @@ func initialize_mining_map() -> void:
 	print_debug(HEIGHT)
 	mining_map = generate_mining_map(1,HEIGHT)
 	generate_pixels(1, HEIGHT)
+	map_generated.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,8 +55,8 @@ func rand_mineral(level: int) -> int:
 # Generates the mining pixels in the mining area
 func generate_pixels(start: int, end: int) -> void:
 	#print_debug(str($Background.scale.x) + " " + str($Background.scale.y))
-	for i in end - start + 1:
-		for j in WIDTH:
+	for i in WIDTH:
+		for j in HEIGHT:
 			var mining_pixel = mining_pixel_load.instantiate()
 			add_child(mining_pixel)
 			mining_pixel.name = "mining_pixel_" + str(i) + "_" + str(j)

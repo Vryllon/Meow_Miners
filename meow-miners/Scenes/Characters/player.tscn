@@ -8,6 +8,7 @@ radius = 16.0
 height = 64.0
 
 [node name="Player" type="CharacterBody2D" unique_id=840833898]
+scale = Vector2(0.9, 0.9)
 slide_on_ceiling = false
 script = ExtResource("1_40svl")
 
@@ -20,7 +21,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_2m74s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1853399607]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(0.1, 0.1)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=823903933]
 
