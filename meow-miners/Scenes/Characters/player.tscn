@@ -21,7 +21,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_2m74s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1853399607]
-zoom = Vector2(0.1, 0.1)
+zoom = Vector2(1.5, 1.5)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=823903933]
 

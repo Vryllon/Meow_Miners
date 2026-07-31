@@ -16,7 +16,6 @@ segments = PackedVector2Array(32, 32, 32, -32, -32, 32, 32, 32, -32, -32, 32, -3
 script = ExtResource("1_3h3yr")
 
 [node name="Map" type="StaticBody2D" parent="." unique_id=1738739877]
-scale = Vector2(100, 100)
 
 [node name="Background" type="Sprite2D" parent="Map" unique_id=2011243076]
 texture = SubResource("GradientTexture2D_0lmff")
