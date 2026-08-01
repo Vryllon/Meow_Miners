@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://bsc66yi5ls8hn"]
 
+[ext_resource type="Script" uid="uid://c6f7dsf35d206" path="res://Scripts/Screens/main_screen.gd" id="1_dslnq"]
+
 [sub_resource type="Gradient" id="Gradient_d2cfc"]
 colors = PackedColorArray(0.18966633, 0.07531866, 0.00061207276, 1, 0.18457794, 0.15735862, 0.14312011, 1)
 
@@ -1253,6 +1255,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_dslnq")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1166636120]
 show_behind_parent = true
@@ -1280,11 +1283,11 @@ text = "Resources"
 
 [node name="Stone" type="Label" parent="VBoxContainer" unique_id=1380904643]
 layout_mode = 2
-text = "Stone : 0"
+text = "Stone : "
 
 [node name="Bolk" type="Label" parent="VBoxContainer" unique_id=1050323322]
 layout_mode = 2
-text = "Bolk : 0"
+text = "Bolk : "
 
 [node name="Start" type="Button" parent="." unique_id=164605472]
 layout_mode = 1

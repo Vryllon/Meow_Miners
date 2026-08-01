@@ -14,6 +14,10 @@ config/name="Meow_Miners"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Art/icon.svg"
 
+[autoload]
+
+PlayerDataHandler="*uid://bj284k0cecq13"
+
 [input]
 
 move_left={
