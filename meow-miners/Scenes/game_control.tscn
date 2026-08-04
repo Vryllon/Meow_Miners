@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b6rbypc4b44mh"]
+
+[ext_resource type="Script" uid="uid://kqpneyq4m7aa" path="res://Scripts/game_control.gd" id="1_53cln"]
+[ext_resource type="PackedScene" uid="uid://ucr3qs72x4r1" path="res://Scenes/Screens/play_screen.tscn" id="2_voh78"]
+[ext_resource type="PackedScene" uid="uid://bsc66yi5ls8hn" path="res://Scenes/Screens/main_screen.tscn" id="3_22nys"]
+
+[node name="GameControl" type="Node" unique_id=1835300187]
+script = ExtResource("1_53cln")
+
+[node name="Play_Screen" parent="." unique_id=1985388514 instance=ExtResource("2_voh78")]
+
+[node name="Main_Screen" parent="." unique_id=1106334910 instance=ExtResource("3_22nys")]
+visible = false

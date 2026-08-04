@@ -28,6 +28,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_oqmmp")
 
 [node name="Play_Buton" type="Button" parent="." unique_id=2067011581]
@@ -54,6 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_018r1")
 
 [connection signal="pressed" from="Play_Buton" to="." method="_on_play_buton_pressed"]
