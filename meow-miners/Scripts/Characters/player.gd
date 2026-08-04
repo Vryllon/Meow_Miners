@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
-var inv = []
+var inv = [0,0]
 var currency = 0
 
 var mining: bool = false
@@ -69,15 +69,9 @@ func handle_mining(delta: float) -> void:
 	if mining_time >= mining_obj.mine_time:
 		add_to_inv(mining_obj.mine())
 
-func add_to_inv(mineral: String) -> void:
-	# Add to existing slot if mineral has already been gathered
-	for slot in inv:
-		if slot[0] == mineral:
-			slot[1] += 1
-			return
-	
+func add_to_inv(mineral: int) -> void:
 	# Add new slot if new item
-	inv.append([mineral, 1])
+	inv[mineral] += 1
 
 func set_mine_target() -> void:
 	# Update previous mined pixel
